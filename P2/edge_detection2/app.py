@@ -46,5 +46,5 @@ def result():
 
     return render_template('result.html', grouped_by_method=grouped_by_method)
 
-if __name__ == "__main__":
-    app.run(debug=True, port=5070)
+if __name__ == '__main__':
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)

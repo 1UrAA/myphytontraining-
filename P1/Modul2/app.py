@@ -121,4 +121,4 @@ def improve_image_quality(img, filters, color_mode):
 
 # Menjalankan aplikasi di localhost:5070 dalam mode debug
 if __name__ == '__main__':
-    app.run(debug=True, port=5030)
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
