@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Gambar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Edit Gambar</h1>
+    <p><strong>Original Gambar:</strong></p>
+    <img src="{{ url_for('static', filename='uploads/' + original_filename) }}" width="300"><br><br>
+
+    <form action="{{ url_for('edit_page') }}" method="POST">
+        <label>Mode Warna:</label>
+        <select name="color_mode">
+            <option value="original">Original</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="blackwhite">Black & White</option>
+            <option value="sepia">Sepia</option>
+            <option value="invert">Invert</option>
+        </select><br><br>
+
+        <label><input type="checkbox" name="filters" value="contrast"> Contrast</label><br>
+        <label><input type="checkbox" name="filters" value="brightness"> Brightness</label><br>
+        <label><input type="checkbox" name="filters" value="blur"> Gaussian Blur</label><br>
+        <label><input type="checkbox" name="filters" value="sharpen"> Sharpen</label><br>
+        <label><input type="checkbox" name="filters" value="detail"> Detail</label><br>
+        <label><input type="checkbox" name="filters" value="edge"> Edge Enhance</label><br>
+        <label><input type="checkbox" name="filters" value="emboss"> Emboss</label><br><br>
+
+        <button type="submit">Proses Gambar</button>
+    </form>
+
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('result_page') }}">Lihat Hasil</a>
+    </div>
+</body>
+</html>

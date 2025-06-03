@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload & Manipulasi Gambar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload Gambar dan Manipulasi</h1>
+    
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required><br><br>
+
+        <h3>Pilih Manipulasi Gambar:</h3>
+        <label for="resize">Resize to (px):</label>
+        <input type="text" name="resize" placeholder="200,200"><br><br>
+
+        <label for="rotate">Rotate (derajat):</label>
+        <input type="number" name="rotate" placeholder="90"><br><br>
+
+        <h4>Crop Gambar:</h4>
+        <label for="crop">Pilih crop area (width x height, misal 100x100):</label>
+        <input type="text" name="crop" placeholder="100x100"><br><br>
+
+        <label for="grayscale">Grayscale:</label>
+        <input type="checkbox" name="grayscale"><br><br>
+
+        <input type="submit" value="Upload & Proses">
+    </form>
+
+    {% if original_filename %}
+        <h2>Gambar Original dan Hasil Manipulasi:</h2>
+        <div class="image-container">
+            <div class="image-box">
+                <h3>Original</h3>
+                <img src="{{ url_for('static', filename='uploads/' + original_filename) }}" alt="Gambar Original">
+            </div>
+            {% if processed_filename %}
+                <div class="image-box">
+                    <h3>Hasil Manipulasi</h3>
+                    <img src="{{ url_for('static', filename='uploads/' + processed_filename) }}" alt="Gambar Hasil Manipulasi">
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>

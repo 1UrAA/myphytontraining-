@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Gambar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Hasil Gambar</h1>
+
+    <div class="image-row">
+        <div class="image-block">
+            <p><strong>Original:</strong></p>
+            <img src="{{ url_for('static', filename='uploads/' + original_filename) }}" width="300">
+        </div>
+        <div class="image-block">
+            <p><strong>Processed:</strong></p>
+            <img src="{{ url_for('static', filename='uploads/' + processed_filename) }}" width="300">
+        </div>
+    </div>
+    <div class="action-links">
+        <a href="{{ url_for('static', filename='uploads/' + processed_filename) }}" download>Download Hasil</a>
+        <a href="{{ url_for('edit_page') }}">Edit Ulang</a>
+    </div>
+    </a>
+</body>
+</html>

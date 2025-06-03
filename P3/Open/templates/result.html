@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Deteksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1>Hasil Pengolahan Gambar</h1>
+
+    <div class="section">
+        <div class="title">Gambar Asli</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + original) }}"width="300" alt="Gambar Asli">
+            <img src="{{ url_for('static', filename='uploads/' + hist_original) }}"width="300" alt="Histogram Gambar Asli">
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">Mask (Deteksi Warna Biru)</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + mask) }}" width="300" alt="Mask">
+            <img src="{{ url_for('static', filename='uploads/' + hist_mask) }}"width="300" alt="Histogram Mask">
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">Opening (Hasil Morfologi)</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + opening) }}"width="300" alt="Opening">
+            <img src="{{ url_for('static', filename='uploads/' + hist_opening) }}"width="300" alt="Histogram Opening">
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}">Upload Gambar Lain</a>
+</body>
+</html>

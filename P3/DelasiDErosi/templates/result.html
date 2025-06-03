@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Pemrosesan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Hasil Pengolahan Gambar</h1>
+
+    <div class="section">
+        <div class="title">Gambar Asli</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + original) }}" alt="Gambar Asli">
+            <img src="{{ url_for('static', filename='uploads/' + hist_asli) }}" alt="Histogram Gambar Asli">
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">Erosi</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + erosi) }}" alt="Erosi">
+            <img src="{{ url_for('static', filename='uploads/' + hist_erosi) }}" alt="Histogram Erosi">
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="title">Dilasi</div>
+        <div class="content">
+            <img src="{{ url_for('static', filename='uploads/' + dilasi) }}" alt="Dilasi">
+            <img src="{{ url_for('static', filename='uploads/' + hist_dilasi) }}" alt="Histogram Dilasi">
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}">Upload Gambar Lain</a>
+</body>
+</html>

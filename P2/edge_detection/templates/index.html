@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deteksi Tepi Gambar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload Gambar untuk Deteksi Tepi</h2>
+        <form action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Proses Gambar</button>
+        </form>
+    </div>
+
+    {% if original and processed %}
+    <div class="section">
+        <h1 class="title">Hasil Deteksi Tepi</h1>
+        <div class="content">
+            <div>
+                <p><strong>Gambar Asli</strong></p>
+                <img src="{{ url_for('static', filename='uploads/' + original) }}" alt="Original Image">
+            </div>
+            <div>
+                <p><strong>Gambar Tepi (Canny)</strong></p>
+                <img src="{{ url_for('static', filename='uploads/' + processed) }}" alt="Edge Detected Image">
+            </div>
+        </div>
+        <a href="{{ url_for('index') }}">Upload Gambar Lain</a>
+    </div>
+    {% endif %}
+</body>
+</html>
